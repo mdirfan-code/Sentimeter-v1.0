@@ -28,7 +28,6 @@ class SentimeterModel():
 
     def feedData(self,data):
         if(self.data):
-            self.recentData.append((self.data.copy(deepcopy=True), self.result.copy(deepcopy=True)))
             self.data = []
             self.result = {}
         self.data = data
