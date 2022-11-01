@@ -1,4 +1,5 @@
 from copy import deepcopy
+from email import message
 import numpy as np
 import math
 import re
@@ -6,6 +7,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 from transformers import pipeline
+
+from BERT_Model.scrapper import data
 
 class SentimeterModel():
 
@@ -37,6 +40,11 @@ class SentimeterModel():
         return self.recentData
 
     def analyzeResult(self,timeline):
+        if(len(self.data)<3):
+            return {"success":0, 'message':'Insufficient data to analyse'}
+        if(len(self.data)<10):
+            return {"success":0, 'message':'Not a popular topic.'}
+        
         self.result[timeline] = []
         resCategory = {"5 stars":0,"4 stars":0,"3 stars":0,"2 stars":0,"1 star":0}
         for text in self.data:
@@ -57,7 +65,7 @@ class SentimeterModel():
         self.result[timeline].append({'Positive':positivePercentage, 'Negative':negativePercentage, 'Nuteral': nuteralPercentage})
         self.recentData.append((deepcopy(self.data), deepcopy(self.result[timeline])))
 
-        return {'Positive':positivePercentage, 'Negative':negativePercentage, 'Nuteral': nuteralPercentage}
+        return {'success':1,'result':{'Positive':positivePercentage, 'Negative':negativePercentage, 'Nuteral': nuteralPercentage}}
 
 
 
