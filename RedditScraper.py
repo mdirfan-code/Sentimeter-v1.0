@@ -10,7 +10,7 @@ reddit = praw.Reddit (
 #headline = set()
 #for submission in reddit.subreddit('politics').hot(limit=10):
 
-submission = reddit.submission("yoqmmg")
+submission = reddit.submission("ypckqq")
 
 submission.comments.replace_more(limit=None)
 for comment in submission.comments.list():
