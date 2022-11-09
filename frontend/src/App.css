@@ -1,38 +1,146 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css?family=Inconsolata:700");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html,
+body {
+  width: 100%;
+  height: 100%;
+  background-color: #252525;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.search-container {
+  width: 100%;
+  height: 100%;
+  background: #252525;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.container {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 300px;
+  height: 100px;
+}
+.container .search {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 80px;
+  height: 80px;
+  background: crimson;
+  border-radius: 50%;
+  transition: all 1s;
+  z-index: 4;
+  box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.4);
+}
+.container .search:hover {
+  cursor: pointer;
+}
+.container .search::before {
+  content: "";
+  position: absolute;
+  margin: auto;
+  top: 22px;
+  right: 0;
+  bottom: 0;
+  left: 22px;
+  width: 12px;
+  height: 2px;
+  background: white;
+  transform: rotate(45deg);
+  transition: all 0.5s;
+}
+.container .search::after {
+  content: "";
+  position: absolute;
+  margin: auto;
+  top: -5px;
+  right: 0;
+  bottom: 0;
+  left: -5px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: 2px solid white;
+  transition: all 0.5s;
+}
+.container input {
+  font-family: "Inconsolata", monospace;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  outline: none;
+  border: none;
+  background: crimson;
   color: white;
+  text-shadow: 0 0 10px crimson;
+  padding: 0 80px 0 20px;
+  border-radius: 30px;
+  box-shadow: 0 0 25px 0 crimson, 0 20px 25px 0 rgba(0, 0, 0, 0.2);
+  transition: all 1s;
+  opacity: 0;
+  z-index: 5;
+  font-weight: bolder;
+  letter-spacing: 0.1em;
+}
+.container input:hover {
+  cursor: pointer;
+}
+.container input:focus {
+  width: 300px;
+  opacity: 1;
+  cursor: text;
+}
+.container input:focus ~ .search {
+  right: -250px;
+  background: #151515;
+  z-index: 6;
+}
+.container input:focus ~ .search::before {
+  top: 0;
+  left: 0;
+  width: 25px;
+}
+.container input:focus ~ .search::after {
+  top: 0;
+  left: 0;
+  width: 25px;
+  height: 2px;
+  border: none;
+  background: white;
+  border-radius: 0%;
+  transform: rotate(-45deg);
+}
+.container input::placeholder {
+  color: white;
+  opacity: 0.5;
+  font-weight: bolder;
 }
 
-.App-link {
-  color: #61dafb;
+.chart-container {
+  height: 100vh;
+
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.chart-container .donut,
+.chart-container .bubble {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px 2px #d7d7d7;
 }
