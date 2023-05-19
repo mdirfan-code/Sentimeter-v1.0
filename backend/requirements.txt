@@ -21,7 +21,7 @@ certifi==2019.11.28
 cffi==1.15.1
 chardet==3.0.4
 charset-normalizer==2.1.0
-cliapp==1.20180812.1
+#cliapp==1.20180812.1
 Click==7.0
 cloud-init==21.4
 cmdtest==0.32+git
