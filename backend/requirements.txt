@@ -24,7 +24,7 @@ charset-normalizer==2.1.0
 #cliapp==1.20180812.1
 Click==7.0
 #cloud-init==21.4
-cmdtest==0.32+git
+#cmdtest==0.32+git
 colorama==0.4.3
 command-not-found==0.3
 configobj==5.0.6
